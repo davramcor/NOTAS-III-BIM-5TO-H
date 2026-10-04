@@ -33,7 +33,7 @@ const nombresColumnas={
   'PRACTICA 1':'Práctica 1',
   'PRACTICA 2':'Práctica 2',
   'PRACTICA 3':'Práctica 3',
-  'EXPOSICIÓN':'Exposición'
+  'EXPOSICION':'Exposición'
 };
 function normalizar(s){return String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toUpperCase()}
 function separar(linea){return linea.split(';').map(x=>x.trim())}
