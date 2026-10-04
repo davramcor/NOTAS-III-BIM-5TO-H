@@ -12,7 +12,7 @@
 <div class="contenedor">
   <div class="cabecera">
     <h1>Consulta de notas</h1>
-    <p>5.º de Secundaria – Sección F</p>
+    <p>5.º de Secundaria – Sección H</p>
   </div>
   <div class="tarjeta">
     <div class="busqueda">
@@ -70,7 +70,7 @@ function consultar(){
   const alumno=estudiantes.find(x=>String(x.DNI).replace(/\D/g,'')===entrada);
   if(!alumno){document.getElementById('mensaje').className='mensaje error';document.getElementById('mensaje').textContent='No se encontró un estudiante con ese DNI.';return;}
   document.getElementById('mensaje').style.display='none';
-  const campos=['INFORME LABORATORIO 1','INFORME LABORATORIO 2','PRACTICA 1','PRACTICA 2','PRACTICA 3','EXPOSICIÓN'];
+  const campos=['INFORME LABORATORIO 1','INFORME LABORATORIO 2','PRACTICA 1','PRACTICA 2','PRACTICA 3','EXPOSICION'];
   let filas=campos.map(c=>{const nota=String(alumno[c]||'').trim().toUpperCase();const clase=['AD','A','B','C'].includes(nota)?nota:'';return `<tr><td>${nombresColumnas[c]||c}</td><td class="nota ${clase}">${nota||'—'}</td></tr>`}).join('');
   resultado.innerHTML=`<div class="alumno"><div class="nombre">${escapar(alumno['APELLIDOS Y NOMBRES'])}</div><div class="dni">DNI: ${escapar(alumno.DNI)}</div></div><table class="tabla"><thead><tr><th>Actividad</th><th style="text-align:center">Calificación</th></tr></thead><tbody>${filas}</tbody></table>`;
   resultado.style.display='block';
